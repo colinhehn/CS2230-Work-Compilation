@@ -59,7 +59,18 @@ public class MaxOfBoth {
 	}
 
 	public static int max_of_both(int[] x, int[] y) {
-        // delete the following line and put your code here
-        return -42;
+		int max = -1;
+
+        for(int i = 0; i < x.length; i++){
+			if (x[i] > max){
+				for(int j = 0; j < y.length; j++){
+					if(x[i] == y[j]) max = x[i];
+				}
+			}
+		}
+		if (max == -1) {
+			max = Integer.MIN_VALUE;
+		}
+        return max;
 	}
 }
