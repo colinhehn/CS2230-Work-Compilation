@@ -75,8 +75,21 @@ class RemoveZeroes {
 	}
 
 	public static int[] remove_zeroes(int[] arr) {
-        // delete the following line and put your code here
-        return arr;
+		int element_count = 0;
+		for(int i = 0; i < arr.length; i++){
+			if (arr[i] != 0) element_count += 1;
+		}
+		int[] noZero = new int[element_count];
+
+		int add_index = 0;
+		for(int i = 0; i < arr.length; i++){
+			if(arr[i] != 0){
+				noZero[add_index] = arr[i];
+				add_index += 1;
+			}
+		}
+
+        return noZero;
 	}
 }
 

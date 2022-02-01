@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 //sp21
 public class CountMismatches {
     // check() takes a test number and two ints expected and actual
@@ -65,7 +67,45 @@ public class CountMismatches {
     }
     
     public static int count_mismatches(String seq1, String seq2) {
-        // delete the following line and put your code here
+        int mismatches = 0;
+		seq1 = seq1.toUpperCase();
+		seq2 = seq2.toUpperCase();
+
+		if (seq1.length() == seq2.length()) {
+			for (int i = 0; i < seq1.length(); i++){
+				if(seq1.charAt(i) == 'A' && seq2.charAt(i) == 'T') continue;
+				if(seq1.charAt(i) == 'T' && seq2.charAt(i) == 'A') continue;
+				if(seq1.charAt(i) == 'C' && seq2.charAt(i) == 'G') continue;
+				if(seq1.charAt(i) == 'G' && seq2.charAt(i) == 'C') continue;
+				else mismatches += 1;
+			}
+			return mismatches;
+		}
+		else {
+			mismatches += Math.abs(seq1.length() - seq2.length());
+
+			if (seq1.length() > seq2.length()) {
+				for (int i = 0; i < seq2.length(); i++){
+					if(seq1.charAt(i) == 'A' && seq2.charAt(i) == 'T') continue;
+					if(seq1.charAt(i) == 'T' && seq2.charAt(i) == 'A') continue;
+					if(seq1.charAt(i) == 'C' && seq2.charAt(i) == 'G') continue;
+					if(seq1.charAt(i) == 'G' && seq2.charAt(i) == 'C') continue;
+					else mismatches += 1;
+				}
+				return mismatches;
+			}
+
+			if (seq1.length() < seq2.length()) {
+				for (int i = 0; i < seq1.length(); i++){
+					if(seq1.charAt(i) == 'A' && seq2.charAt(i) == 'T') continue;
+					if(seq1.charAt(i) == 'T' && seq2.charAt(i) == 'A') continue;
+					if(seq1.charAt(i) == 'C' && seq2.charAt(i) == 'G') continue;
+					if(seq1.charAt(i) == 'G' && seq2.charAt(i) == 'C') continue;
+					else mismatches += 1;
+				}
+				return mismatches;
+			}
+		}
 		return -1;
     }
 }
